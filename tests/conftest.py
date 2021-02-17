@@ -15,9 +15,9 @@ def setup(browser):
             except:
                 driver = webdriver.Chrome()
                 print("Launching chrome browser in Windows.........")
-        elif platform == "darwin":
+        else:
             driver = webdriver.Chrome()
-            print("Launching chrome driver in Mac.....")
+            print("Launching chrome driver in Mac or Linux.....")
     yield driver
     teardown()
 
