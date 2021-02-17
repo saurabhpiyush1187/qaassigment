@@ -137,7 +137,7 @@ I have used github Actions to support CI/CD. The job will automatically run case
 Please see runs here
 
     https://github.com/saurabhpiyush1187/qaassigment/actions
-
+![](github_ci_cd.PNG)
 
 ## **Framework Architecture**
 ![](architecture.png)

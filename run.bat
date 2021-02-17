@@ -1,1 +1,1 @@
-py -m pytest -s -v -m "smoke" --html=./reports/report.html  --browser chrome
+py -m pytest -s -v -m "smoke" --disable-warnings --html=./reports/report.html --browser chrome
