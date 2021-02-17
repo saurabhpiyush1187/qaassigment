@@ -31,6 +31,20 @@ class Createcard:
 
 
     def get_card_column_uuid(self,board_uuid, str_token, pstr_card_type):
+        """
+                                        Description:
+                                            |  This method allows user to get card column uuid
+
+                                        :param uuid: uuid of the created board
+                                        :type uuid: String
+                                        :param str_token: auth_token
+                                        :type str_token: String
+                                        :param pstr_card_type: card type e.g. Went well
+                                        :type pstr_card_type: String
+
+
+                                        :return: boolean
+                                """
         self.str_auth_token = str_token
         dict_service_disc = self.config_utils.get_servicedescription("springboard_description.yml", "get_board")
         str_request_url = dict_service_disc["target_url"] + dict_service_disc["endpoint"] +"/"+ str(board_uuid)+ dict_service_disc[
@@ -59,6 +73,18 @@ class Createcard:
 
 
     def create_card(self,str_card_column_uuid, str_token,card_type):
+        """
+                                                Description:
+                                                    |  This method allows user to create_card
+
+                                                :param str_card_column_uuid: uuid of the card
+                                                :type str_card_column_uuid: String
+                                                :param str_token: auth_token
+                                                :type str_token: String
+                                                :param card_type: card type e.g. Went well
+                                                :type card_type: String
+                                                :return: boolean
+                                        """
         dict_service_disc={}
         self.str_auth_token = str_token
         if card_type=="Went well":
@@ -86,6 +112,16 @@ class Createcard:
 
 
     def like_card(self,str_card_uuid, str_token):
+        """
+                                                        Description:
+                                                            |  This method allows user to like_card
+
+                                                        :param str_card_uuid: uuid of the card
+                                                        :type str_card_uuid: String
+                                                        :param str_token: auth_token
+                                                        :type str_token: String
+                                                        :return: boolean
+                                                """
         self.str_auth_token = str_token
         dict_service_disc = self.config_utils.get_servicedescription("springboard_description.yml", "like_card")
         str_request_url = dict_service_disc["target_url"] + dict_service_disc["endpoint"] +"/"+ str(str_card_uuid)+"/like"+ dict_service_disc["queryparams"]
@@ -108,6 +144,16 @@ class Createcard:
 
 
     def delete_card(self,str_card_uuid, str_token):
+        """
+                                                                Description:
+                                                                    |  This method allows user to delete_card
+
+                                                                :param str_card_uuid: uuid of the card
+                                                                :type str_card_uuid: String
+                                                                :param str_token: auth_token
+                                                                :type str_token: String
+                                                                :return: boolean
+                                                        """
         self.str_auth_token = str_token
         dict_service_disc = self.config_utils.get_servicedescription("springboard_description.yml", "delete_card")
         str_request_url = dict_service_disc["target_url"] + dict_service_disc["endpoint"] +"/"+ str(str_card_uuid)+ dict_service_disc["queryparams"]

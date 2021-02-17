@@ -35,7 +35,7 @@ class ReadConfig:
 
     @staticmethod
     def getvaluesfrom_json(pstr_property, pstr_value):
-            json_path = "." + os.sep + "testdata" + os.sep + "testdata.json"
+            json_path = "." + os.sep + "testdata" + os.sep + "TestData.json"
             with open(json_path, 'r') as myfile:
                 data = myfile.read()
 
