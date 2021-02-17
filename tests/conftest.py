@@ -9,8 +9,12 @@ def setup(browser):
     global driver
     if browser == 'chrome':
         if platform == "win32":
-            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe")
-            print("Launching chrome browser in Windows.........")
+            try:
+                driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe")
+                print("Launching chrome browser in Windows.........")
+            except:
+                driver = webdriver.Chrome()
+                print("Launching chrome browser in Windows.........")
         elif platform == "darwin":
             driver = webdriver.Chrome()
             print("Launching chrome driver in Mac.....")
