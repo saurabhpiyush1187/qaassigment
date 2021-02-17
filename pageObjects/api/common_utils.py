@@ -39,6 +39,11 @@ class CommonUtils:
 
 
     def springboard_get_authtoken(self):
+        """
+                    Description:
+                    	|  This method login to the application
+                    	| Takes input from config_api.yml
+                    """
         str_username, str_password = self.config_utils.fetch_login_credentials(pstr_user_account_type="default_user")
         dict_service_disc = self.config_utils.get_servicedescription("springboard_description.yml", "login")
 

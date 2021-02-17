@@ -47,6 +47,18 @@ class BoardPage:
 
 
     def create_board(self,str_session_name, owner, str_succes_message):
+        """
+                Description:
+                    |  This method allows user to create_board
+
+                :param str_session_name: Name of the session
+                :type str_session_name: String
+                :param owner: Select owner
+                :type owner: String
+                :param str_succes_message: Success message after board is created
+                :type str_succes_message: String
+                :return: boolean: if the board is created successfully
+        """
         bln_session_name = self.ui_helper.is_element_displayed(self.board_locators.pstr_input_session_name)
         if bln_session_name:
             self.ui_helper.type(self.board_locators.pstr_input_session_name,str_session_name)

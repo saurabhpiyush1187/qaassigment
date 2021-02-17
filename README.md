@@ -16,7 +16,7 @@ For this assignment, I used pytest framework - a python-based test automation fr
 - **pytest** (for executing test plans in TDD format)
 - **requests library** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
-- **pytest--html** (for reporting)
+- **pytest-html** (for reporting)
 - **logging module** (for logging - tracking events that occur while software runs)
 
 ### **Run the Automation Suite**
@@ -102,11 +102,11 @@ Please follow the steps below:
     Now, simply run the command
 
 
-    python -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
+    python3 -m pytest -s -v -m "smoke" --html=./reports/report.html --browser chrome
 
          or
 
-    py -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
+    py -m pytest -s -v -m "smoke" --html=./reports/report.html --browser chrome
 4. **Troubleshooting in Mac**
     
     If you have any issue with chromedriver, you can copy **./Browsers/chromedriver** to **/usr/local/bin**
@@ -118,11 +118,11 @@ I have also automate the cases through cases through api.Automated API tests pro
 
 If you want to run only API cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
     
-    python -m pytest -s -v -m "api" --html=./Reports/report.html
+    python3 -m pytest -s -v -m "api" --html=./reports/report.html
 
 If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
 
-    python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
+    python3 -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
 ## **Framework Architecture**
 ![](architecture.png)
 
