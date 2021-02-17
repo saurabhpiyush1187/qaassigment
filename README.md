@@ -8,8 +8,10 @@ This repo contains the UI as well as API automation cases that were developed as
     2. [Method B Mac](#Method-B-Mac)
 3. [API Automation](#---API-Automation)
 4. [Framework Architecture](#Framework-Architecture)
-5. [Why this framework?](#Why-this-framework?)
-6. [Contact](#Contact)
+5. [Data Flow API](#Data-Flow-API)
+6. [Data Flow UI](#Data-Flow-UI)
+7. [Why this framework?](#Why-this-framework?)
+8. [Contact](#Contact)
 
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
@@ -94,6 +96,11 @@ Please follow the steps below:
             source venv/bin/activate
             pip3 install -r requirements.txt
             
+            or
+        
+            python3 -m venv env
+            source env/bin/activate
+            pip3 install -r requirements.txt
 
     This will install all the dependent libraries
 
@@ -123,8 +130,23 @@ If you want to run only API cases, simply run the command(Mac) or edit the same 
 If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
 
     python3 -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
+
+## **CI CD Support**
+
+I have used github Actions to support CI/CD. The job will automatically run cases in case of any push into main branch.
+Please see runs here
+
+    https://github.com/saurabhpiyush1187/qaassigment/actions
+
+
 ## **Framework Architecture**
 ![](architecture.png)
+
+## **Data Flow API**
+![](dfd_api_sennder.png)
+
+## **Data Flow UI**
+![](dfd_ui_sennder.PNG)
 
 ## **Why this framework?**
 - ### **Open Source and Compatible**
