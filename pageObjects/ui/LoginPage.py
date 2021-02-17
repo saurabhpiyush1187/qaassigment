@@ -85,6 +85,16 @@ class LoginPage:
 
 
     def login(self,username,password):
+        """
+                                Description:
+                                    |  This method allows user to login to application
+
+                                :param username: Name of the user
+                                :type username: String
+                                :param password: Password of the user
+                                :type password: String
+                                :return: boolean
+                        """
         assert self.verify_loginpage()
         self.setUserName(username)
         self.setPassword(password)

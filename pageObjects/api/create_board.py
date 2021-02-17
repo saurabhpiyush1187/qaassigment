@@ -55,6 +55,14 @@ class CreateBoard:
 
 
     def verify_created_board(self,uuid):
+        """
+                                Description:
+                                    |  This method allows user to verify created board
+
+                                :param uuid: uuid of the created board
+                                :type uuid: String
+                                :return: boolean
+                        """
         dict_service_disc = self.config_utils.get_servicedescription("springboard_description.yml", "get_board")
         str_request_url = dict_service_disc["target_url"] + dict_service_disc["endpoint"] +"/"+ str(uuid)+ dict_service_disc[
             "queryparams"]

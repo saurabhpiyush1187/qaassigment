@@ -17,6 +17,14 @@ class CreateCard:
 
 
     def clickCard(self, pstr_type):
+        """
+                        Description:
+                            |  This method allows user to click on card
+
+                        :param pstr_type: Type of card e.g. Went well, Didn't go well
+                        :type pstr_type: String
+                        :return: boolean: if the board is created successfully
+                """
         pstr_card_type = self.card_locators.pstr_type_card.format(pstr_type)
         bln_card_type = self.ui_helper.is_element_displayed(pstr_card_type)
         pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
@@ -34,6 +42,14 @@ class CreateCard:
 
 
     def verify_modal_header(self, pstr_header):
+        """
+                                Description:
+                                    |  This method allows user to verify modal header: E.g :Add a Card
+
+                                :param pstr_header: Header Name
+                                :type pstr_header: String
+                                :return: boolean
+                        """
         pstr_card_type = self.card_locators.pstr_addcard_model.format(pstr_header)
         bln_card_type = self.ui_helper.is_element_displayed(pstr_card_type)
         if bln_card_type:
@@ -58,6 +74,16 @@ class CreateCard:
             assert False
 
     def create_card(self,pstr_title, pstr_description):
+        """
+                        Description:
+                            |  This method allows user to create_card
+
+                        :param pstr_title: Title of the card
+                        :type pstr_title: String
+                        :param pstr_description: Description of the card
+                        :type pstr_description: String
+                        :return: boolean
+                """
         bln_title_name = self.ui_helper.is_element_displayed(self.card_locators.pstr_title)
         if bln_title_name:
             self.ui_helper.type(self.card_locators.pstr_title,pstr_title)
@@ -90,6 +116,16 @@ class CreateCard:
 
 
     def verify_card(self,pstr_card_type,pstr_title,pstr_desciption):
+        """
+                                Description:
+                                    |  This method allows user to verify_card
+
+                                :param pstr_title: Title of the card
+                                :type pstr_title: String
+                                :param pstr_description: Description of the card
+                                :type pstr_description: String
+                                :return: boolean
+                        """
         pstr_load = self.card_locators.pstr_load_title.format(pstr_card_type)
         bln_load_card = self.ui_helper.is_element_displayed(pstr_load)
         if bln_load_card:
@@ -113,6 +149,16 @@ class CreateCard:
             return False
 
     def click_activity(self,pstr_card_type, pstr_activity):
+        """
+                                Description:
+                                    |  This method allows user to click on activity
+
+                                :param pstr_card_type: Card Type.E.g Went well
+                                :type pstr_card_type: String
+                                :param pstr_activity: Activity. E.g Like, Delete
+                                :type pstr_activity: String
+                                :return: boolean
+                        """
         self.wait_board_page_to_load()
         pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
         bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_modal_header)
@@ -136,6 +182,17 @@ class CreateCard:
 
 
     def verify_activity(self,pstr_card,pstr_activity,**kwargs):
+        """
+                                        Description:
+                                            |  This method allows user to verify activity aftercard is created
+
+                                        :param pstr_card_type: Card Type.E.g Went well
+                                        :type pstr_card_type: String
+                                        :param pstr_activity: Activity. E.g Like
+                                        :type pstr_activity: String
+                                        :**kwargs : Count of like
+                                        :return: boolean
+                                """
         if pstr_activity == "like" and "pstr_like_count" in kwargs:
             pstr_activity_val = kwargs.get("pstr_like_count")
             pstr_activity_actual = self.card_locators.pstr_activity.format(pstr_card, pstr_activity_val)
@@ -154,6 +211,16 @@ class CreateCard:
                 return False
 
     def verify_delete_modal(self, pstr_delete_header, pstr_delete_question):
+        """
+                                                Description:
+                                                    |  This method allows user to verify delete modal
+
+                                                :param pstr_delete_header:
+                                                :type pstr_delete_header: String
+                                                :param pstr_delete_question:
+                                                :type pstr_delete_question: String
+                                                :return: boolean
+                                        """
         bln_delete_pop_up = self.ui_helper.is_element_displayed(self.card_locators.pstr_delete_pop_up)
         if bln_delete_pop_up:
             str_delete_header = self.driver.find_element_by_xpath(self.card_locators.pstr_verify_delete_pop_up).text
@@ -187,6 +254,15 @@ class CreateCard:
             assert False
 
     def verify_delete_card(self,pstr_card_type):
+        """
+                                        Description:
+                                            |  This method allows user to delete card
+
+                                        :param pstr_card_type: Card Type.E.g Went well
+                                        :type pstr_card_type: String
+
+                                        :return: boolean
+                                """
         pstr_load = self.card_locators.pstr_load_title.format(pstr_card_type)
         bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_load)
         if bln_load_card:
