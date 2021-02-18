@@ -7,11 +7,12 @@ This repo contains the UI as well as API automation cases that were developed as
     1. [Method A Windows](#Method-A-Windows)
     2. [Method B Mac](#Method-B-Mac)
 3. [API Automation](#---API-Automation)
-4. [Framework Architecture](#Framework-Architecture)
-5. [Data Flow API](#Data-Flow-API)
-6. [Data Flow UI](#Data-Flow-UI)
-7. [Why this framework?](#Why-this-framework?)
-8. [Contact](#Contact)
+4. [CI CD Support](#CI-CD-Support)
+5. [Framework Architecture](#Framework-Architecture)
+6. [Data Flow API](#Data-Flow-API)
+7. [Data Flow UI](#Data-Flow-UI)
+8. [Why this framework?](#Why-this-framework?)
+9. [Contact](#Contact)
 
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
