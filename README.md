@@ -6,7 +6,7 @@ This repo contains the UI as well as API automation cases that were developed as
 2. [Run the Automation Suite](#Run-the-Automation-Suite)
     1. [Method A Windows](#Method-A-Windows)
     2. [Method B Mac](#Method-B-Mac)
-3. [API Automation](#---API-Automation)
+3. [API Automation](#API-Automation)
 4. [CI CD Support](#CI-CD-Support)
 5. [Framework Architecture](#Framework-Architecture)
 6. [Data Flow API](#Data-Flow-API)
