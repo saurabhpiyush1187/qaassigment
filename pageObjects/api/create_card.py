@@ -7,11 +7,8 @@ from utilities.customLogger import LogGen
 
 
 
-class Createcard:
+class Createcard(RequestBuilder, CommonUtils,LogGen):
     config_utils = ConfigUtils(os.getcwd())
-    request_builder = RequestBuilder()
-    mi_common_utils = CommonUtils()
-    logger = LogGen.loggen()
 
     def __init__(self):
         self.response = ""
@@ -26,7 +23,7 @@ class Createcard:
         	|  This method calls the is_responsevalid from comon_utils to validate the response code
         :return: None
         """
-        bln_response = self.mi_common_utils.is_responsevalid(self.response)
+        bln_response = self.is_responsevalid(self.response)
         return bln_response
 
 
@@ -52,23 +49,23 @@ class Createcard:
         headers = dict_service_disc["headers"]
         headers["Authorization"] = "Bearer "+self.str_auth_token
         payload = dict_service_disc["payload"]
-        self.response = self.request_builder.call_request(dict_service_disc["method"], str_request_url,
+        self.response = self.call_request(dict_service_disc["method"], str_request_url,
                                                        headers, pstr_payload=payload)
         self.response_content = self.response.content
-        bln_response1 = self.mi_common_utils.is_reponsegenerated(self.response)
+        bln_response1 = self.is_reponsegenerated(self.response)
         bln_validate_response = self.validate_reponse()
         response_json = json.loads(self.response_content)
         if bln_response1 and bln_validate_response:
             for i in range(0,3):
                 if response_json['data']['columns'][i]['title']==pstr_card_type:
-                    self.logger.info("*****Card Column found***")
+                    self.loggen().info("*****Card Column found***")
                     str_uuid= response_json['data']['columns'][i]['uuid']
                     return str_uuid
             else:
-                self.logger.info("*****Card Column not found***")
+                self.loggen().info("*****Card Column not found***")
                 return None
         else:
-            self.logger.info("*****Board is not verified successfully***Response code"+ str(self.response.status_code) )
+            self.loggen().info("*****Board is not verified successfully***Response code"+ str(self.response.status_code) )
             return None
 
 
@@ -95,18 +92,18 @@ class Createcard:
         headers = dict_service_disc["headers"]
         headers["Authorization"] = "Bearer " + self.str_auth_token
         payload = dict_service_disc["payload"] +"," + "\"" + "column_uuid" + "\"" + ":" + "\"" + str_card_column_uuid + "\"" +"}"
-        self.response = self.request_builder.call_request(dict_service_disc["method"], str_request_url,
+        self.response = self.call_request(dict_service_disc["method"], str_request_url,
                                                           headers, pstr_payload=payload)
         self.response_content = self.response.content
-        bln_response1 = self.mi_common_utils.is_reponsegenerated(self.response)
+        bln_response1 = self.is_reponsegenerated(self.response)
         bln_validate_response = self.validate_reponse()
         response_json = json.loads(self.response_content)
         if bln_response1 and bln_validate_response:
-            self.logger.info("*****Card is created successfully***")
+            self.loggen().info("*****Card is created successfully***")
             card_uuid = response_json['data']['uuid']
             return card_uuid
         else:
-            self.logger.info("*****Card is not created successfully***Response code"+ str(self.response.status_code) )
+            self.loggen().info("*****Card is not created successfully***Response code"+ str(self.response.status_code) )
             return None
 
 
@@ -128,18 +125,18 @@ class Createcard:
         headers = dict_service_disc["headers"]
         headers["Authorization"] = "Bearer " + self.str_auth_token
         payload = dict_service_disc["payload"]
-        self.response = self.request_builder.call_request(dict_service_disc["method"], str_request_url,
+        self.response = self.call_request(dict_service_disc["method"], str_request_url,
                                                           headers, pstr_payload=payload)
         self.response_content = self.response.content
-        bln_response1 = self.mi_common_utils.is_reponsegenerated(self.response)
+        bln_response1 = self.is_reponsegenerated(self.response)
         bln_validate_response = self.validate_reponse()
         response_json = json.loads(self.response_content)
         if bln_response1 and bln_validate_response:
-            self.logger.info("*****Like request send successfully***")
+            self.loggen().info("*****Like request send successfully***")
             status = response_json['status']
             return status
         else:
-            self.logger.info("*****Like request unsuccessfull***Response code"+ str(self.response.status_code) )
+            self.loggen().info("*****Like request unsuccessfull***Response code"+ str(self.response.status_code) )
             return None
 
 
@@ -160,18 +157,18 @@ class Createcard:
         headers = dict_service_disc["headers"]
         headers["Authorization"] = "Bearer " + self.str_auth_token
         payload = dict_service_disc["payload"]
-        self.response = self.request_builder.call_request(dict_service_disc["method"], str_request_url,
+        self.response = self.call_request(dict_service_disc["method"], str_request_url,
                                                           headers, pstr_payload=payload)
         self.response_content = self.response.content
-        bln_response1 = self.mi_common_utils.is_reponsegenerated(self.response)
+        bln_response1 = self.is_reponsegenerated(self.response)
         bln_validate_response = self.validate_reponse()
         response_json = json.loads(self.response_content)
         if bln_response1 and bln_validate_response:
-            self.logger.info("*****Delete request send successfully***")
+            self.loggen().info("*****Delete request send successfully***")
             status = response_json['status']
             return status
         else:
-            self.logger.info("*****Delete request unsuccessfull***Response code"+ str(self.response.status_code) )
+            self.loggen().info("*****Delete request unsuccessfull***Response code"+ str(self.response.status_code) )
             return None
 
 
