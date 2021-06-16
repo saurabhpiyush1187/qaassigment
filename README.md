@@ -1,5 +1,5 @@
 # QA Assignment submitted by **Saurabh Piyush**
-This repo contains the UI as well as API automation cases that were developed as part of the assignment, to qualify for the post of Senior Automation Engineer at Sennder
+This repo contains the UI as well as API automation cases that were developed as part of the assignment
 
 ## Index
 1. [Framework](#Framework)
